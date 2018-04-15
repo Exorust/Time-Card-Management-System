@@ -38,3 +38,10 @@ values
 (103,'2018-02-11','07:50:00','18:49:00'),
 (104,'2018-02-11','08:10:00','13:49:00');
 
+insert into dependents
+(uno,name,sex,dob,relation)
+values
+(101,'chandu','m','2008-11-06','son'),
+(102,'mayank','m','2005-12-07','son'),
+(103,'shalini','f','2004-01-01','daughter'),
+(104,'mansi','f','2004-07-07','daughter');
