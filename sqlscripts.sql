@@ -2,11 +2,11 @@ drop database timecard;
 create database timecard;
 use timecard;
 create table dept(did int primary key, dname varchar(20));
-create table emp(uid int primary key,f_name varchar(20),l_name varchar(20),sex varchar(1),dob date,type varchar(1),pass varchar(20),doj date,dno int references dept(did));
+create table emp(uid int primary key,f_name varchar(20),l_name varchar(20),sex varchar(1),dob date,type varchar(1),pass varchar(20),sanswer varchar(90),doj date,dno int references dept(did));
 create table projects(pid int primary key,pname varchar(20),bonus int,salary int,deadline date,cust varchar(20));
 create table dependents(uno int primary key references emp(uid),name varchar(20),sex varchar(1),dob date,relation varchar(20));
 create table works(eid int primary key references emp(uid),w_date date,checkin time,checkout time);
-create table leav(lid int primary key,start date,days int,reason varchar(50),status int,eno int references emp(uid));
+create table leav(lid int primary key,start date,days int,reason varchar(200),status int,eno int references emp(uid));
 
 insert into dept
 (did,dname)
@@ -16,12 +16,20 @@ values
 (30,'test');
 
 insert into emp
-  (uid,f_name,l_name,sex,dob,type,pass,doj,dno)
+  (uid,f_name,l_name,sex,dob,type,pass,sanswer,doj,dno)
 values
-(101,'gopesh','khandelwal','m','1997-03-08','a','abc123','2013-10-16',10),
-(102,'chandrahas','aroori','m','1997-04-05','a','abc123','2015-08-04',10),
-(103,'shubham','paliwal','m','1996-11-11','a','abc123','2014-07-14',10),
-(104,'chetan','vibandik','m','1996-11-16','a','abc123','2013-11-18',10);
+(101,'gopesh','khandelwal','m','1997-03-08','a','abc123','dog','2013-10-16',10),
+(102,'chandrahas','aroori','m','1997-04-05','a','abc123','cat','2015-08-04',10),
+(103,'shubham','paliwal','m','1996-11-11','a','abc123','pig','2014-07-14',10),
+(104,'chetan','vibandik','m','1996-11-16','a','abc123','lion','2013-11-18',10);
+
+insert into emp
+  (uid,sanswer)
+values
+(101,'dog'),
+(102,'cat'),
+(103,'pig'),
+(104,'lion');
 
 insert into projects
   (pid,pname,bonus,salary,deadline,cust)
