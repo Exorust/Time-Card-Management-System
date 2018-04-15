@@ -6,6 +6,7 @@ create table emp(uid int primary key,f_name varchar(20),l_name varchar(20),sex v
 create table projects(pid int primary key,pname varchar(20),bonus int,salary int,deadline date,cust varchar(20));
 create table dependents(uno int primary key references emp(uid),name varchar(20),sex varchar(1),dob date,relation varchar(20));
 create table works(eid int primary key references emp(uid),w_date date,checkin time,checkout time);
+create table leav(lid int primary key,start date,days int,reason varchar(50),status int,eno int references emp(uid));
 
 insert into dept
 (did,dname)
@@ -37,6 +38,12 @@ values
 (102,'2018-02-01','07:49:00','15:49:00'),
 (103,'2018-02-11','07:50:00','18:49:00'),
 (104,'2018-02-11','08:10:00','13:49:00');
+
+insert into leav
+(lid,start,days,reason,status,eno)
+values
+(1123,'2018-03-03',5,'beti ki shaadi',0,104),
+(1456,'2018-02-02',3,'kabzi ho gyi',0,102);
 
 insert into dependents
 (uno,name,sex,dob,relation)
