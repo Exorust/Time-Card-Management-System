@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="355.0" prefWidth="233.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141">
+   <children>
+      <Pane prefHeight="355.0" prefWidth="281.0">
+         <children>
+            <Label layoutX="23.0" layoutY="17.0" text="Employee Status">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="57.0" fitWidth="75.0" layoutX="18.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@index.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="Name" layoutX="111.0" layoutY="51.0" />
+            <Label layoutX="112.0" layoutY="80.0" />
+            <Label layoutX="23.0" layoutY="125.0" text="Monthly Salary Till now" />
+            <Label layoutX="196.0" layoutY="126.0" />
+            <Label layoutX="23.0" layoutY="162.0" text="Number of Days Worked" />
+            <Label layoutX="196.0" layoutY="162.0" />
+            <Button layoutX="41.0" layoutY="231.0" mnemonicParsing="false" text="Back" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

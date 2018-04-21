@@ -12,7 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class EmpController {
+public class AdminController{
 
     @FXML
     private ResourceBundle resources;
@@ -32,4 +32,13 @@ public class EmpController {
     	window.setScene(tableViewscene);
     	window.show();
     }
+    public void edit(ActionEvent event) throws IOException
+    {
+    	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("CreateEditEmp.fxml"));
+    	Scene tableViewscene = new Scene(tableView);
+    	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	window.setScene(tableViewscene);
+    	window.show();
+    }
 }
+
