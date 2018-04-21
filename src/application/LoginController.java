@@ -72,5 +72,13 @@ public class LoginController implements Initializable{
 		// TODO Auto-generated method stub
 		
 	}
+	public void forgot(ActionEvent event) throws IOException
+    {
+    	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Forgot.fxml"));
+    	Scene tableViewscene = new Scene(tableView);
+    	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	window.setScene(tableViewscene);
+    	window.show();
+    }
 }
 
