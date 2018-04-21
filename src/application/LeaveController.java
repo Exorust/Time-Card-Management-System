@@ -9,27 +9,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class EmpStatusController {
-	public void back(ActionEvent event) throws IOException
+public class LeaveController {
+	public void back (ActionEvent event) throws IOException
     {
-		if(EmpController.emp == 1)
-		{
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Emp.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
     	window.setScene(tableViewscene);
     	window.show();
-    	EmpController.emp = 0;
-		}
-		if(AdminController.admin == 1)
-		{
-    	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Admin.fxml"));
+    }
+	public void apply (ActionEvent event) throws IOException
+    {
+    	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Emp.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
     	window.setScene(tableViewscene);
     	window.show();
-    	AdminController.admin = 0;
-		}
     }
 
 }

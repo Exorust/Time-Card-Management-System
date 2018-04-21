@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 public class AdminController{
 
+	public static int admin = 0;
     @FXML
     private ResourceBundle resources;
 
@@ -47,6 +48,7 @@ public class AdminController{
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
     	window.setScene(tableViewscene);
     	window.show();
+    	admin = 1;
     }
     public void report(ActionEvent event) throws IOException
     {
