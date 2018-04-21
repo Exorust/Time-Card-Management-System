@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="359.0" prefWidth="452.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141">
+<AnchorPane prefHeight="359.0" prefWidth="452.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProjectReportController">
    <children>
       <Pane prefHeight="359.0" prefWidth="452.0">
          <children>
@@ -20,8 +19,7 @@
             <Label layoutX="38.0" layoutY="95.0" text="Hours Worked" />
             <Label layoutX="38.0" layoutY="125.0" text="Days To Completion" />
             <Label layoutX="38.0" layoutY="154.0" text="Deadline" />
-            <Button layoutX="53.0" layoutY="231.0" mnemonicParsing="false" text="Export as PDF" />
-            <Button layoutX="259.0" layoutY="231.0" mnemonicParsing="false" text="Back" />
+            <Button layoutX="196.0" layoutY="232.0" mnemonicParsing="false" onAction="#back" text="Back" />
          </children>
       </Pane>
    </children>
