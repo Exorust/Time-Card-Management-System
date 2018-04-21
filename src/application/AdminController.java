@@ -40,5 +40,29 @@ public class AdminController{
     	window.setScene(tableViewscene);
     	window.show();
     }
+    public void empstatus(ActionEvent event) throws IOException
+    {
+    	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("EmpStatus.fxml"));
+    	Scene tableViewscene = new Scene(tableView);
+    	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	window.setScene(tableViewscene);
+    	window.show();
+    }
+    public void report(ActionEvent event) throws IOException
+    {
+    	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("ProjectReport.fxml"));
+    	Scene tableViewscene = new Scene(tableView);
+    	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	window.setScene(tableViewscene);
+    	window.show();
+    }
+    public void bonus(ActionEvent event) throws IOException
+    {
+    	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Bonus.fxml"));
+    	Scene tableViewscene = new Scene(tableView);
+    	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	window.setScene(tableViewscene);
+    	window.show();
+    }
 }
 

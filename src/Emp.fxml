@@ -25,7 +25,7 @@
             </Button>
             <Label layoutX="190.0" layoutY="129.0" text="Project ID" />
             <Label layoutX="279.0" layoutY="124.0" prefHeight="26.0" prefWidth="85.0" />
-            <Button layoutX="189.0" layoutY="172.0" mnemonicParsing="false" text="Leave Application" />
+            <Button fx:id="leaveapp" layoutX="189.0" layoutY="172.0" mnemonicParsing="false" onAction="#leave" text="Leave Application" />
             <Button layoutX="197.0" layoutY="203.0" mnemonicParsing="false" text="Status" />
          </children>
       </Pane>

@@ -18,11 +18,11 @@
             <Label layoutX="166.0" layoutY="58.0" prefHeight="16.0" prefWidth="92.0" />
             <Label layoutX="190.0" layoutY="129.0" />
             <Label layoutX="279.0" layoutY="124.0" prefHeight="26.0" prefWidth="85.0" />
-            <Button layoutX="204.0" layoutY="98.0" mnemonicParsing="false" text="Edit Employee Info" onAction="#edit"/>
-            <Button layoutX="205.0" layoutY="135.0" mnemonicParsing="false" text="See Employee Status" />
+            <Button layoutX="204.0" layoutY="98.0" mnemonicParsing="false" onAction="#edit" text="Edit Employee Info" />
+            <Button layoutX="205.0" layoutY="135.0" mnemonicParsing="false" onAction="#empstatus" text="See Employee Status" />
             <Button layoutX="204.0" layoutY="176.0" mnemonicParsing="false" text="Leave Application" />
-            <Button layoutX="205.0" layoutY="218.0" mnemonicParsing="false" text="Project Report" />
-            <Button layoutX="204.0" layoutY="265.0" mnemonicParsing="false" text="Bonus" />
+            <Button layoutX="205.0" layoutY="218.0" mnemonicParsing="false" onAction="#report" text="Project Report" />
+            <Button layoutX="204.0" layoutY="265.0" mnemonicParsing="false" onAction="#bonus" text="Bonus" />
             <Button layoutX="44.0" layoutY="262.0" mnemonicParsing="false" onAction="#logout" text="Logout">
                <font>
                   <Font size="17.0" />

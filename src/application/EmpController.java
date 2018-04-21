@@ -32,4 +32,12 @@ public class EmpController {
     	window.setScene(tableViewscene);
     	window.show();
     }
+    public void leave(ActionEvent event) throws IOException
+    {
+    	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Leave.fxml"));
+    	Scene tableViewscene = new Scene(tableView);
+    	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	window.setScene(tableViewscene);
+    	window.show();
+    }
 }
