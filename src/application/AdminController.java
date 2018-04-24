@@ -7,8 +7,14 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -18,6 +24,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class AdminController{
 
@@ -46,9 +53,22 @@ public class AdminController{
     
     @FXML
     private TextField empID;
+    private Label time;
 
     @FXML
     public void initialize() {
+    	DateFormat format = new SimpleDateFormat( "HH:mm:ss" );
+        final Timeline timeline = new Timeline(
+            new KeyFrame(
+            		Duration.millis(1000),
+            		event -> {
+            			Calendar cal = Calendar.getInstance();
+            			time.setText(format.format(cal.getTime()));
+            		}
+            		)
+    );
+        timeline.setCycleCount( Animation.INDEFINITE );
+        timeline.play();
     	System.out.println("In initialize");
     	String first=null,last = null;
     	ID = Integer.parseInt(empID.getText());
