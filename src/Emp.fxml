@@ -27,6 +27,7 @@
             <Label layoutX="279.0" layoutY="124.0" prefHeight="26.0" prefWidth="85.0" />
             <Button fx:id="leaveapp" layoutX="189.0" layoutY="172.0" mnemonicParsing="false" onAction="#leave" text="Leave Application" />
             <Button layoutX="197.0" layoutY="203.0" mnemonicParsing="false" onAction="#status" text="Status" />
+            <Label fx:id="time" layoutX="346.0" layoutY="58.0" text="Label" />
          </children>
       </Pane>
       <ImageView fitHeight="54.0" fitWidth="75.0" layoutX="24.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
