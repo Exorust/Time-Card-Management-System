@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class CreateEditEmpController { //CONFIG REQD : Add dept??
@@ -41,7 +42,7 @@ public class CreateEditEmpController { //CONFIG REQD : Add dept??
     private TextField UID;
 
     @FXML
-    private TextField Pass;
+    private PasswordField Pass;
 
     @FXML
     private TextField D1name;

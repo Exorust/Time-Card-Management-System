@@ -18,17 +18,18 @@
             <Label fx:id="Namex" layoutX="167.0" layoutY="26.0" prefHeight="16.0" prefWidth="196.0" />
             <Label fx:id="idx" layoutX="166.0" layoutY="58.0" prefHeight="16.0" prefWidth="92.0" />
             <Label fx:id="time" layoutX="23.0" layoutY="98.0" prefHeight="26.0" prefWidth="100.0" />
-            <Button layoutX="204.0" layoutY="98.0" mnemonicParsing="false" onAction="#edit" text="Edit Employee Info" />
-            <Button layoutX="205.0" layoutY="135.0" mnemonicParsing="false" onAction="#empstatus" text="See Employee Status" />
-            <Button layoutX="204.0" layoutY="176.0" mnemonicParsing="false" text="Leave Application" />
-            <Button layoutX="205.0" layoutY="218.0" mnemonicParsing="false" onAction="#report" text="Project Report" />
-            <Button layoutX="204.0" layoutY="265.0" mnemonicParsing="false" onAction="#bonus" text="Bonus" />
+            <Button layoutX="199.0" layoutY="116.0" mnemonicParsing="false" onAction="#edit" text="Create/Edit Employee" />
+            <Button layoutX="197.0" layoutY="182.0" mnemonicParsing="false" onAction="#empstatus" text="See Employee Status" />
+            <Button layoutX="198.0" layoutY="214.0" mnemonicParsing="false" text="Leave Application" />
+            <Button layoutX="198.0" layoutY="246.0" mnemonicParsing="false" onAction="#report" text="Project Report" />
             <Button layoutX="44.0" layoutY="262.0" mnemonicParsing="false" onAction="#logout" text="Logout">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <TextField fx:id="empID" layoutX="371.0" layoutY="136.0" prefHeight="26.0" prefWidth="58.0" />
+            <TextField fx:id="empID" layoutX="360.0" layoutY="182.0" prefHeight="26.0" prefWidth="58.0" />
+            <Button layoutX="201.0" layoutY="278.0" mnemonicParsing="false" onAction="#bonus" text="Bonus" />
+            <Button layoutX="199.0" layoutY="148.0" mnemonicParsing="false" onAction="#delete" text="Delete Employee" />
          </children>
       </Pane>
       <ImageView fitHeight="54.0" fitWidth="75.0" layoutX="24.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
