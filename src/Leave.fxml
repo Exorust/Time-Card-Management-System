@@ -13,11 +13,11 @@
       <Pane layoutY="-1.0" prefHeight="354.0" prefWidth="324.0">
          <children>
             <Label layoutX="27.0" layoutY="32.0" text="From:" />
-            <TextField layoutX="77.0" layoutY="27.0" prefHeight="26.0" prefWidth="121.0" promptText="dd/mm/yy" />
+            <TextField fx:id="from" layoutX="77.0" layoutY="27.0" prefHeight="26.0" prefWidth="121.0" promptText="yyyy-mm-dd" />
             <Label layoutX="27.0" layoutY="69.0" text="No. of Days:" />
-            <TextField layoutX="114.0" layoutY="64.0" prefHeight="26.0" prefWidth="55.0" />
+            <TextField fx:id="noOfDays" layoutX="114.0" layoutY="64.0" prefHeight="26.0" prefWidth="55.0" />
             <Label layoutX="28.0" layoutY="108.0" text="Reason" />
-            <TextArea layoutX="88.0" layoutY="108.0" prefHeight="99.0" prefWidth="199.0" />
+            <TextArea fx:id="ReasonsTxt" layoutX="88.0" layoutY="108.0" prefHeight="99.0" prefWidth="199.0" />
             <Button layoutX="47.0" layoutY="226.0" mnemonicParsing="false" onAction="#apply" text="Apply">
                <font>
                   <Font size="14.0" />

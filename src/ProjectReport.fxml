@@ -20,6 +20,10 @@
             <Label layoutX="38.0" layoutY="125.0" text="Days To Completion" />
             <Label layoutX="38.0" layoutY="154.0" text="Deadline" />
             <Button layoutX="196.0" layoutY="232.0" mnemonicParsing="false" onAction="#back" text="Back" />
+            <Label fx:id="Name" layoutX="170.0" layoutY="64.0" prefHeight="16.0" prefWidth="190.0" />
+            <Label fx:id="Hour" layoutX="164.0" layoutY="96.0" prefHeight="16.0" prefWidth="190.0" />
+            <Label fx:id="Days" layoutX="181.0" layoutY="125.0" prefHeight="16.0" prefWidth="112.0" />
+            <Label fx:id="Deadline" layoutX="131.0" layoutY="153.0" prefHeight="16.0" prefWidth="112.0" />
          </children>
       </Pane>
    </children>

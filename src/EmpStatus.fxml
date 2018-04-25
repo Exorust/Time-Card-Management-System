@@ -22,12 +22,12 @@
                   <Image url="@index.png" />
                </image>
             </ImageView>
-            <Label fx:id="Name" layoutX="111.0" layoutY="51.0" />
-            <Label layoutX="112.0" layoutY="80.0" />
+            <Label fx:id="Name" layoutX="111.0" layoutY="51.0" prefHeight="16.0" prefWidth="113.0" />
+            <Label fx:id="ID" layoutX="112.0" layoutY="80.0" prefHeight="16.0" prefWidth="113.0" />
             <Label layoutX="23.0" layoutY="125.0" text="Monthly Salary Till now" />
-            <Label layoutX="196.0" layoutY="126.0" />
+            <Label fx:id="Salary" layoutX="196.0" layoutY="126.0" prefHeight="16.0" prefWidth="50.0" />
             <Label layoutX="23.0" layoutY="162.0" text="Number of Days Worked" />
-            <Label layoutX="196.0" layoutY="162.0" />
+            <Label fx:id="Days" layoutX="196.0" layoutY="162.0" prefHeight="16.0" prefWidth="50.0" />
             <Button layoutX="41.0" layoutY="231.0" mnemonicParsing="false" onAction="#back" text="Back" />
          </children>
       </Pane>

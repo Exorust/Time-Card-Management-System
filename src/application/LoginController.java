@@ -21,7 +21,9 @@ import javafx.scene.Node;
 import java.sql.*;
 
 public class LoginController implements Initializable { 
-
+	
+	public static int ID;
+	
 	   // JDBC driver name and database URL
 	   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
 	   static final String DB_URL = "jdbc:mysql://localhost/timecard";
@@ -51,6 +53,7 @@ public class LoginController implements Initializable {
     public void changeScreen(ActionEvent event) throws IOException
     {	
     	String username = userid.getText();
+    	ID = Integer.parseInt(username);
     	String pass = password.getText();
     	boolean checkPass = false;
     	boolean checkIsAdmin =false;
@@ -62,11 +65,11 @@ public class LoginController implements Initializable {
     	      Class.forName("com.mysql.jdbc.Driver");
 
     	      //STEP 3: Open a connection
-    	      System.out.println("Connecting to database...");
+    	      System.out.println("Connecting to database for login...");
     	      conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
     	      //STEP 4: Execute a query
-    	      System.out.println("Creating statement...");
+    	      System.out.println("Creating statement for login...");
     	      stmt = conn.createStatement();
     	      String sql;
     	      sql = "select pass from emp where uid=" + Integer.parseInt(username);
@@ -152,7 +155,9 @@ public class LoginController implements Initializable {
 
 	}
 	public void forgot(ActionEvent event) throws IOException
-    {
+    {	
+		String username = userid.getText();
+		ID = Integer.parseInt(username);
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Forgot.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
