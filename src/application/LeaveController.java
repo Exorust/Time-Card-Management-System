@@ -53,48 +53,52 @@ public class LeaveController {
     	String Reason = ReasonsTxt.getText();
     	Connection conn = null;
  	   Statement stmt = null;
- 	   try{
- 	      //STEP 2: Register JDBC driver
- 	      Class.forName("com.mysql.jdbc.Driver");
+ 	   
 
- 	      //STEP 3: Open a connection
- 	      System.out.println("Connecting to database for emp...");
- 	      conn = DriverManager.getConnection(DB_URL,USER,PASS);
+ 	 	   try{
+ 	 	      //STEP 2: Register JDBC driver
+ 	 	      Class.forName("com.mysql.jdbc.Driver");
 
- 	      //STEP 4: Execute a query
- 	      System.out.println("Creating statement for leave...");
- 	      stmt = conn.createStatement();
- 	      String sql;
- 	      Random rand = new Random();
+ 	 	      //STEP 3: Open a connection
+ 	 	      System.out.println("Connecting to database for emp...");
+ 	 	      conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
- 	      int lid= rand.nextInt(100) + 1;
- 	      sql = "insert into leav values("+Integer.toString(lid)+",'"+date+"',"+Days+",'"+Reason+"',0,"+ LoginController.ID+");" ;
- 	      stmt.executeUpdate(sql);
- 	      
- 	      
- 	      //STEP 6: Clean-up environment
- 	      stmt.close();
- 	      conn.close();
- 	   }catch(SQLException se){
- 	      //Handle errors for JDBC
- 	      se.printStackTrace();
- 	   }catch(Exception e){
- 	      //Handle errors for Class.forName
- 	      e.printStackTrace();
- 	   }finally{
- 	      //finally block used to close resources
- 	      try{
- 	         if(stmt!=null)
- 	            stmt.close();
- 	      }catch(SQLException se2){
- 	      }// nothing we can do
- 	      try{
- 	         if(conn!=null)
- 	            conn.close();
- 	      }catch(SQLException se){
- 	         se.printStackTrace();
- 	      }//end finally try
- 	   }//end try 
+ 	 	      //STEP 4: Execute a query
+ 	 	      System.out.println("Creating statement for leave...");
+ 	 	      stmt = conn.createStatement();
+ 	 	      String sql;
+ 	 	      Random rand = new Random();
+
+ 	 	      int lid= rand.nextInt(100) + 1;
+ 	 	      sql = "insert into leav values("+Integer.toString(lid)+",'"+date+"',"+Days+",'"+Reason+"',0,"+ LoginController.ID+");" ;
+ 	 	      stmt.executeUpdate(sql);
+ 	 	      
+ 	 	      
+ 	 	      //STEP 6: Clean-up environment
+ 	 	      stmt.close();
+ 	 	      conn.close();
+ 	 	   }catch(SQLException se){
+ 	 	      //Handle errors for JDBC
+ 	 	      se.printStackTrace();
+ 	 	   }catch(Exception e){
+ 	 	      //Handle errors for Class.forName
+ 	 	      e.printStackTrace();
+ 	 	   }finally{
+ 	 	      //finally block used to close resources
+ 	 	      try{
+ 	 	         if(stmt!=null)
+ 	 	            stmt.close();
+ 	 	      }catch(SQLException se2){
+ 	 	      }// nothing we can do
+ 	 	      try{
+ 	 	         if(conn!=null)
+ 	 	            conn.close();
+ 	 	      }catch(SQLException se){
+ 	 	         se.printStackTrace();
+ 	 	      }//end finally try
+ 	 	   }//end try 
+
+ 	   
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Emp.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

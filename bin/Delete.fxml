@@ -6,13 +6,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DeleteController">
    <children>
-      <Label layoutX="47.0" layoutY="122.0" text="Enter Employee ID :" />
-      <TextField fx:id="id" layoutX="198.0" layoutY="117.0" />
-      <Button layoutX="81.0" layoutY="195.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
-      <Button layoutX="272.0" layoutY="195.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Label layoutX="47.0" layoutY="122.0" prefHeight="19.0" prefWidth="158.0" text="Enter Employee ID :">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField fx:id="id" layoutX="211.0" layoutY="117.0" promptText="UID" />
+      <Button layoutX="325.0" layoutY="194.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+      <Button layoutX="251.0" layoutY="195.0" mnemonicParsing="false" onAction="#back" text="Back" />
       <Label layoutX="92.0" layoutY="50.0" text="DELETE EMPLOYEE">
          <font>
             <Font name="System Bold" size="24.0" />

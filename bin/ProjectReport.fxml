@@ -6,22 +6,31 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="359.0" prefWidth="452.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProjectReportController">
+<AnchorPane prefHeight="288.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProjectReportController">
    <children>
-      <Pane prefHeight="359.0" prefWidth="452.0">
+      <Pane prefHeight="282.0" prefWidth="409.0">
          <children>
             <Label layoutX="14.0" layoutY="14.0" text="PROJECT REPORT">
                <font>
                   <Font size="29.0" />
                </font>
             </Label>
-            <Label layoutX="38.0" layoutY="102.0" text="Customer Name" />
-            <Label layoutX="38.0" layoutY="125.0" text="Days To Completion" />
-            <Label layoutX="38.0" layoutY="154.0" text="Deadline" />
-            <Button layoutX="196.0" layoutY="232.0" mnemonicParsing="false" onAction="#back" text="Back" />
-            <Label fx:id="Name" layoutX="170.0" layoutY="103.0" prefHeight="16.0" prefWidth="190.0" />
-            <Label fx:id="Days" layoutX="181.0" layoutY="125.0" prefHeight="16.0" prefWidth="112.0" />
-            <Label fx:id="Deadline" layoutX="131.0" layoutY="153.0" prefHeight="16.0" prefWidth="112.0" />
+            <Label layoutX="41.0" layoutY="82.0" text="Customer Name:">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <Label layoutX="44.0" layoutY="125.0" text="Days To Completion:">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <Label layoutX="45.0" layoutY="169.0" text="Deadline:">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <Button layoutX="276.0" layoutY="244.0" mnemonicParsing="false" onAction="#back" text="Back" />
+            <Label fx:id="Name" layoutX="212.0" layoutY="84.0" prefHeight="19.0" prefWidth="190.0" />
+            <Label fx:id="Days" layoutX="214.0" layoutY="124.0" prefHeight="19.0" prefWidth="112.0" />
+            <Label fx:id="Deadline" layoutX="215.0" layoutY="166.0" prefHeight="19.0" prefWidth="112.0" />
          </children>
       </Pane>
    </children>

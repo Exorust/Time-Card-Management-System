@@ -46,6 +46,9 @@ public class EmpController {
 
     @FXML
     private Label idz;
+    
+    @FXML
+    private Label project_id;
 
     @FXML
     private URL location;
@@ -88,14 +91,22 @@ public class EmpController {
  	      sql = "select f_name,l_name from emp where uid=" + LoginController.ID;
  	      ResultSet rs = stmt.executeQuery(sql);
 
-
  	      //STEP 5: Extract data from result set
  	      while(rs.next()){
  	         //Retrieve by column name
  	         first = rs.getString("f_name");
  	         last = rs.getString("l_name");
  	      }
-
+ 	      
+ 	     sql = "select pno from emp where uid="+ LoginController.ID;
+ 	    rs = stmt.executeQuery(sql);
+	      while(rs.next()){
+	 	         //Retrieve by column name
+	    	  int x= rs.getInt("pno");
+	    	  System.out.println(x);
+	 	         project_id.setText(Integer.toString(x));
+	 	         
+	 	  } 
  	      //STEP 6: Clean-up environment
  	      rs.close();
  	      stmt.close();
@@ -163,9 +174,26 @@ public class EmpController {
   	      //STEP 4: Execute a query
   	      System.out.println("Creating statement for name...");
   	      stmt = conn.createStatement();
-  	      String sql;
-  	      sql = "insert into works values("+LoginController.ID+",(select pno from emp where uid="+LoginController.ID+"),'"+date+"','"+time+"',null);";
-  	      stmt.executeUpdate(sql);
+  	      String sql,sql1;
+  	      sql1 = "select count(*) from works where eid="+LoginController.ID+" and w_date='"+date+"';";
+  	      ResultSet rs = stmt.executeQuery(sql1);
+  	      
+  	      boolean b=false;
+  	      //STEP 5: Extract data from result set
+  	      while(rs.next()){
+  	         //Retrieve by column name
+  	         int idz  = rs.getInt("count(*)");
+  	         System.out.println(idz+" ");
+  	         if(idz ==0) {
+  	        	 b = true;
+  	         }
+  	      }
+  	      
+  	      if(b) {
+  	  	      sql = "insert into works values("+LoginController.ID+",(select pno from emp where uid="+LoginController.ID+"),'"+date+"','"+time+"',null);";
+  	  	      stmt.executeUpdate(sql); 
+  	      }
+
 
   	      //STEP 6: Clean-up environment
 

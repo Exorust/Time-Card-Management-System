@@ -147,7 +147,6 @@ public class AdminController{
     }
     public void edit(ActionEvent event) throws IOException
     {	admincheck=1;
-	EID = Integer.parseInt(empID.getText());
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("CreateEditEmp.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -169,7 +168,6 @@ public class AdminController{
     public void report(ActionEvent event) throws IOException
     {	
     	admincheck=1;
-    	EID = Integer.parseInt(empID.getText());
     	PRID = Integer.parseInt(projID.getText());
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("ProjectReport.fxml"));
     	Scene tableViewscene = new Scene(tableView);
@@ -180,7 +178,6 @@ public class AdminController{
     public void bonus(ActionEvent event) throws IOException
     {	
     	admincheck=1;
-    	EID = Integer.parseInt(empID.getText());
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Bonus.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

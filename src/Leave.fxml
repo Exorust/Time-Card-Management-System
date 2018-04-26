@@ -11,27 +11,27 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="354.0" prefWidth="324.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LeaveController">
+<AnchorPane prefHeight="327.0" prefWidth="324.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LeaveController">
    <children>
       <Pane layoutY="3.0" prefHeight="319.0" prefWidth="324.0">
          <children>
-            <Label layoutX="27.0" layoutY="104.0" text="From:" />
-            <TextField fx:id="from" layoutX="76.0" layoutY="91.0" prefHeight="26.0" prefWidth="121.0" promptText="yyyy-mm-dd" />
-            <Label layoutX="24.0" layoutY="131.0" text="No. of Days:" />
-            <TextField fx:id="noOfDays" layoutX="115.0" layoutY="125.0" prefHeight="26.0" prefWidth="55.0" />
+            <Label layoutX="26.0" layoutY="96.0" text="From:" />
+            <TextField fx:id="from" layoutX="112.0" layoutY="92.0" prefHeight="26.0" prefWidth="121.0" promptText="yyyy-mm-dd" />
+            <Label layoutX="26.0" layoutY="130.0" text="No. of Days:" />
+            <TextField fx:id="noOfDays" layoutX="113.0" layoutY="128.0" prefHeight="26.0" prefWidth="55.0" />
             <Label layoutX="26.0" layoutY="166.0" text="Reason:" />
-            <TextArea fx:id="ReasonsTxt" layoutX="88.0" layoutY="165.0" prefHeight="99.0" prefWidth="199.0" />
-            <Button layoutX="158.0" layoutY="279.0" mnemonicParsing="false" onAction="#apply" text="Apply">
+            <TextArea fx:id="ReasonsTxt" layoutX="112.0" layoutY="166.0" prefHeight="82.0" prefWidth="177.0" />
+            <Button layoutX="232.0" layoutY="271.0" mnemonicParsing="false" onAction="#apply" text="Apply">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button layoutX="233.0" layoutY="279.0" mnemonicParsing="false" onAction="#back" text="Back">
+            <Button layoutX="160.0" layoutY="271.0" mnemonicParsing="false" onAction="#back" text="Back">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Label layoutX="24.0" layoutY="44.0" text="LEAVE APPLICATION">
+            <Label layoutX="11.0" layoutY="42.0" text="LEAVE APPLICATION">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
