@@ -8,14 +8,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LeaveAdminController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LeaveAdminController">
    <children>
-      <TableView fx:id="myTable" editable="true" layoutY="67.0" prefHeight="196.0" prefWidth="600.0">
+      <TableView fx:id="myTable" editable="true" layoutY="67.0" prefHeight="196.0" prefWidth="693.0">
         <columns>
-          <TableColumn fx:id="leaveid" editable="false" prefWidth="131.0" text="EMP ID" />
-          <TableColumn fx:id="reason" editable="false" prefWidth="157.0" text="Reason" />
-            <TableColumn fx:id="numberofdays" editable="false" minWidth="4.0" prefWidth="160.0" text="No. of days" />
-            <TableColumn fx:id="accept_reject" onEditCommit="#accept_reject_after_edit" prefWidth="148.0" text="Accept / Reject" />
+          <TableColumn fx:id="leaveid" editable="false" prefWidth="111.0" text="EMP ID" />
+            <TableColumn fx:id="datex" editable="false" prefWidth="106.0" text="Date" />
+          <TableColumn fx:id="reason" editable="false" prefWidth="192.0" text="Reason" />
+            <TableColumn fx:id="numberofdays" editable="false" minWidth="4.0" prefWidth="122.0" text="No. of days" />
+            <TableColumn fx:id="accept_reject" onEditCommit="#accept_reject_after_edit" prefWidth="161.0" text="Accept / Reject" />
         </columns>
       </TableView>
       <Label layoutX="172.0" layoutY="22.0" text="Leave Applications">

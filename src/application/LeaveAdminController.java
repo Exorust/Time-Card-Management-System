@@ -25,6 +25,9 @@ public class LeaveAdminController {
     private TableColumn<LeaveTable, Integer> leaveid = new TableColumn<LeaveTable, Integer>("EMP ID");
 
     @FXML
+    private TableColumn<LeaveTable, String> datex = new TableColumn<LeaveTable, String>("Date");
+    
+    @FXML
     private TableColumn<LeaveTable, String> reason = new TableColumn<LeaveTable, String>("Reason");
 
     @FXML
@@ -54,12 +57,14 @@ public class LeaveAdminController {
     		conn = DriverManager.getConnection(DB_URL,USER,PASS);
     		stmt = conn.createStatement();
     		String sql;
-    		sql = "SELECT eno, days, reason, status from leav;";
+    		sql = "SELECT eno, start, days, reason, status from leav;";
     		ResultSet rs = stmt.executeQuery(sql);
     		while(rs.next())
     		{
     			int e = rs.getInt("eno");
+    			String x = rs.getString("start");
     			int d = rs.getInt("days");
+
     			String r = rs.getString("reason");
     			String s = rs.getString("status");
     			if(s.equals("0"))
@@ -67,7 +72,7 @@ public class LeaveAdminController {
     			else
     				s = "Accepted";
     				
-    			data.add(new LeaveTable(e,d,r,s));
+    			data.add(new LeaveTable(e,x,d,r,s));
     		}
     		
     		
@@ -77,6 +82,7 @@ public class LeaveAdminController {
     		
     	}
     	leaveid.setCellValueFactory(new PropertyValueFactory<>("eno"));
+    	datex.setCellValueFactory(new PropertyValueFactory<>("date"));
 		numberofdays.setCellValueFactory(new PropertyValueFactory<>("days"));
 		reason.setCellValueFactory(new PropertyValueFactory<>("reason"));
 		accept_reject.setCellValueFactory(new PropertyValueFactory<>("status"));

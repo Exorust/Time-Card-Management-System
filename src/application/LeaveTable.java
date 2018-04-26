@@ -6,18 +6,19 @@ import javafx.beans.property.SimpleStringProperty;
 public class LeaveTable {
 	
 	private SimpleIntegerProperty eno, days;
-	private SimpleStringProperty reason, status;
+	private SimpleStringProperty reason, status,date;
 	
 	public LeaveTable()
 	{
 		
 	}
-	public LeaveTable(int eno, int days,String reason, String status)
+	public LeaveTable(int eno,String date, int days,String reason, String status)
 	{
 		this.eno = new SimpleIntegerProperty(eno);
 		this.days = new SimpleIntegerProperty(days);
 		this.reason = new SimpleStringProperty(reason);
 		this.status = new SimpleStringProperty(status);
+		this.date = new SimpleStringProperty(date);	
 	}
 	public int getEno()
 	{
@@ -27,6 +28,7 @@ public class LeaveTable {
 	{
 		this.eno.set(eno);
 	}
+	
 	public int getDays()
 	{
 		return days.get();
@@ -35,6 +37,7 @@ public class LeaveTable {
 	{
 		this.days.set(days);
 	}
+	
 	public String getReason()
 	{
 		return reason.get();
@@ -43,6 +46,19 @@ public class LeaveTable {
 	{
 		this.reason.set(reason);
 	}
+	
+	
+	public String getDate()
+	{
+		return date.get();
+	}
+	public void setDate(String date)
+	{
+		this.date.set(date);
+	}
+	
+	
+	
 	public String getStatus()
 	{
 		return status.get();
