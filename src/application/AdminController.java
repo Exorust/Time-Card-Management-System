@@ -137,7 +137,9 @@ public class AdminController{
 
     }
     public void logout(ActionEvent event) throws IOException
-    {
+    {	
+    	admincheck=1;
+    	EID = Integer.parseInt(empID.getText());
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Login.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -145,7 +147,8 @@ public class AdminController{
     	window.show();
     }
     public void edit(ActionEvent event) throws IOException
-    {
+    {	admincheck=1;
+	EID = Integer.parseInt(empID.getText());
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("CreateEditEmp.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -165,7 +168,9 @@ public class AdminController{
     	admin = 1;
     }
     public void report(ActionEvent event) throws IOException
-    {
+    {	
+    	admincheck=1;
+    	EID = Integer.parseInt(empID.getText());
     	PRID = Integer.parseInt(projID.getText());
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("ProjectReport.fxml"));
     	Scene tableViewscene = new Scene(tableView);
@@ -174,7 +179,9 @@ public class AdminController{
     	window.show();
     }
     public void bonus(ActionEvent event) throws IOException
-    {
+    {	
+    	admincheck=1;
+    	EID = Integer.parseInt(empID.getText());
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Bonus.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -182,11 +189,26 @@ public class AdminController{
     	window.show();
     }
     public void delete(ActionEvent event) throws IOException
-    {
+    {	
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Delete.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
     	window.setScene(tableViewscene);
     	window.show();
+    }
+    
+    
+    public void leaveapp(ActionEvent event) {
+    	Parent tableView;
+		try {
+			tableView = FXMLLoader.load(getClass().getClassLoader().getResource("LeaveAdmin.fxml"));
+			Scene tableViewscene = new Scene(tableView);
+	    	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+	    	window.setScene(tableViewscene);
+	    	window.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }

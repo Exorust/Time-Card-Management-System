@@ -64,8 +64,8 @@ public class EmpController {
     //         		}
     //         		)
     // );
-    //     timeline.setCycleCount( Animation.INDEFINITE );
-    //     timeline.play();
+    //    timeline.setCycleCount( Animation.INDEFINITE );
+       // timeline.play();
     	System.out.println("In initialize");
     	String first=null,last = null;
 

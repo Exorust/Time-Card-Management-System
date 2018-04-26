@@ -45,13 +45,16 @@ public class DeleteController {
 	 	      //STEP 4: Execute a query
 	 	      System.out.println("Creating statement for name...");
 	 	      stmt = conn.createStatement();
-	 	      String sql1,sql2;
-	 	      sql1 = "delete from dependents where uno="+ LoginController.ID;
-	 	      sql2 = "delete from emp where uid=" + LoginController.ID;
+	 	      String sql1,sql2,sql3,sql4;
+	 	      sql1 = "delete from dependents where uno="+ id.getText();
+	 	      sql2 = "delete from works where eid="+id.getText();
+	 	      sql3 = "delete from leav where eno="+id.getText();
+	 	      sql4 = "delete from emp where uid=" + id.getText();
 	 	      stmt.executeUpdate(sql1);
 	 	     stmt.executeUpdate(sql2);
-
-
+	 	    stmt.executeUpdate(sql3);
+	 	   stmt.executeUpdate(sql4);
+	 	   
 	 	      //STEP 6: Clean-up environment
 	 	      
 	 	      stmt.close();
@@ -76,6 +79,12 @@ public class DeleteController {
 	 	         se.printStackTrace();
 	 	      }//end finally try
 	 	   }//end try
+	 	   
+	 	  Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Admin.fxml"));
+	    	Scene tableViewscene = new Scene(tableView);
+	    	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+	    	window.setScene(tableViewscene);
+	    	window.show();
     }
 	public void back(ActionEvent event) throws IOException
     {
