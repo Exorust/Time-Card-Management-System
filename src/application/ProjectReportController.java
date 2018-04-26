@@ -2,7 +2,9 @@ package application;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
@@ -21,8 +23,7 @@ public class ProjectReportController { //CONFIG REQD
     @FXML
     private Label Name;
 
-    @FXML
-    private Label Hour;
+
 
     @FXML
     private Label Days;
@@ -55,11 +56,37 @@ public class ProjectReportController { //CONFIG REQD
 	 	      System.out.println("Creating statement for leave...");
 	 	      stmt = conn.createStatement();
 	 	      String sql;
-	 	      Random rand = new Random();
-
-	 	      int lid= rand.nextInt(100) + 1;
-	 	      sql = "insert into leav values("+Integer.toString(lid)+",'"+date+"',"+Days+",'"+Reason+"',0,"+ LoginController.ID+");" ;
-	 	      stmt.executeUpdate(sql);
+	 	      
+		 	     sql = "select cust from projects where pid="+AdminController.PRID;
+		 	     ResultSet rs = stmt.executeQuery(sql);
+		 	     String dx = null;
+		 	      //STEP 5: Extract data from result set
+		 	      while(rs.next()){
+		 	         //Retrieve by column name
+		 	    	  dx = rs.getString("cust");
+		 	      }
+		 	      Name.setText(dx);
+	 	      
+	 	     sql = "select deadline from projects where pid="+AdminController.PRID;
+	 	     rs = stmt.executeQuery(sql);
+	 	     Date h = null;
+	 	      //STEP 5: Extract data from result set
+	 	      while(rs.next()){
+	 	         //Retrieve by column name
+	 	    	  h = rs.getDate("deadline");
+	 	      }
+	 	      Deadline.setText(h.toString());
+		 	     
+	 	      
+	 	      sql = "select datediff(deadline,sysdate()) from projects where pid="+AdminController.PRID;
+		 	     rs = stmt.executeQuery(sql);
+		 	     int x =0;
+		 	      //STEP 5: Extract data from result set
+		 	      while(rs.next()){
+		 	         //Retrieve by column name
+		 	    	  x = rs.getInt("datediff(deadline,sysdate())");
+		 	      }
+		 	      Days.setText(Integer.toString(x));
 	 	      
 	 	      
 	 	      //STEP 6: Clean-up environment

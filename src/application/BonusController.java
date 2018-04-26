@@ -53,7 +53,7 @@ public class BonusController { //CONFIG REQD
  	      stmt = conn.createStatement();
  	      String sql;
  	      
- 	      sql = "update project set bonus ="+amt+" where pid = "+proj;
+ 	      sql = "update projects set bonus ="+amt+" where pid ="+proj;
  	      stmt.executeUpdate(sql);
  	      
  	      

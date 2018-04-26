@@ -27,19 +27,20 @@ import javafx.util.Duration;
 
 public class EmpController {
 	public static  int emp = 0;
+	public static  int empcheck = 0;
 	public static int ID = 0;
-	
+
 	   // JDBC driver name and database URL
-	   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+	   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	   static final String DB_URL = "jdbc:mysql://localhost/timecard";
 
 	   //  Database credentials
 	   static final String USER = "root";
-	   static final String PASS = "abc123";	
+	   static final String PASS = "abc123";
 
     @FXML
     private ResourceBundle resources;
-    
+
     @FXML
     private Label Namez;
 
@@ -50,26 +51,26 @@ public class EmpController {
     private URL location;
     private Label time;
     long endTime = 1000000000;
-    
+
     @FXML
     void initialize() {
     	DateFormat format = new SimpleDateFormat( "HH:mm:ss" );
-        final Timeline timeline = new Timeline(
-            new KeyFrame(
-            		Duration.millis(1000),
-            		event -> {
-            			Calendar cal = Calendar.getInstance();
-            			time.setText(format.format(cal.getTime()));
-            		}
-            		)
-    );
-        timeline.setCycleCount( Animation.INDEFINITE );
-        timeline.play();
+    //     final Timeline timeline = new Timeline(
+    //         new KeyFrame(
+    //         		Duration.millis(1000),
+    //         		event -> {
+    //         			Calendar cal = Calendar.getInstance();
+    //         			time.setText(format.format(cal.getTime()));
+    //         		}
+    //         		)
+    // );
+    //     timeline.setCycleCount( Animation.INDEFINITE );
+    //     timeline.play();
     	System.out.println("In initialize");
     	String first=null,last = null;
-    	
+
     	ID = LoginController.ID;
-    	
+
     	Connection conn = null;
  	   Statement stmt = null;
  	   try{
@@ -86,15 +87,15 @@ public class EmpController {
  	      String sql;
  	      sql = "select f_name,l_name from emp where uid=" + LoginController.ID;
  	      ResultSet rs = stmt.executeQuery(sql);
- 	      
- 	      
+
+
  	      //STEP 5: Extract data from result set
  	      while(rs.next()){
  	         //Retrieve by column name
  	         first = rs.getString("f_name");
  	         last = rs.getString("l_name");
  	      }
- 	      
+
  	      //STEP 6: Clean-up environment
  	      rs.close();
  	      stmt.close();
@@ -118,8 +119,8 @@ public class EmpController {
  	      }catch(SQLException se){
  	         se.printStackTrace();
  	      }//end finally try
- 	   }//end try 
- 	   
+ 	   }//end try
+
  	   String names = first + " " + last;
  	   Namez.setText(names);
  	   idz.setText(Integer.toString(LoginController.ID));
@@ -163,14 +164,11 @@ public class EmpController {
   	      System.out.println("Creating statement for name...");
   	      stmt = conn.createStatement();
   	      String sql;
-  	      sql = "insert into works values (eid,'"+date+"','"+time+"',null)";
+  	      sql = "insert into works values ("+LoginController.ID+",(select w.pno from works w where eid="+LoginController.ID+"and ),'"+date+"','"+time+"',null)";
   	      stmt.executeUpdate(sql);
-  	      
-  	      
 
-  	      
   	      //STEP 6: Clean-up environment
-  	      rs.close();
+
   	      stmt.close();
   	      conn.close();
   	   }catch(SQLException se){
@@ -192,8 +190,8 @@ public class EmpController {
   	      }catch(SQLException se){
   	         se.printStackTrace();
   	      }//end finally try
-  	   }//end try 
-    	
+  	   }//end try
+
     }
     public void out (ActionEvent event) throws IOException
     {
@@ -204,7 +202,9 @@ public class EmpController {
     	String date = format1.format(cal.getTime());
     	SimpleDateFormat format2 = new SimpleDateFormat("HH:mm:ss");
     	String time = format2.format(cal.getTime());
-    	
+
+    	Connection conn = null;
+ 	   Statement stmt = null;
    	   try{
    	      //STEP 2: Register JDBC driver
    	      Class.forName("com.mysql.jdbc.Driver");
@@ -219,12 +219,12 @@ public class EmpController {
    	      String sql;
    	      sql = "update works set checkout="+date+"where eid="+ID;
    	      stmt.executeUpdate(sql);
-   	      
-   	      
 
-   	      
+
+
+
    	      //STEP 6: Clean-up environment
-   	      rs.close();
+
    	      stmt.close();
    	      conn.close();
    	   }catch(SQLException se){
@@ -246,10 +246,11 @@ public class EmpController {
    	      }catch(SQLException se){
    	         se.printStackTrace();
    	      }//end finally try
-   	   }//end try 
+   	   }//end try
     }
     public void status (ActionEvent event) throws IOException
     {
+    	empcheck =1;
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("EmpStatus.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

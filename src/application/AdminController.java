@@ -29,50 +29,58 @@ import javafx.util.Duration;
 public class AdminController{
 
 	public static int admin = 0;
+	public static int admincheck = 0;
 	public static int ID = 0;
-	
+	public static int PRID = 0;
+	public static int EID = 0;
+
 	   // JDBC driver name and database URL
-	   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+	   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	   static final String DB_URL = "jdbc:mysql://localhost/timecard";
 
 	   //  Database credentials
 	   static final String USER = "root";
-	   static final String PASS = "abc123";	
-	   
+	   static final String PASS = "abc123";
+
     @FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
-    
+
     @FXML
     private Label Namex;
 
     @FXML
     private Label idx;
-    
+
     @FXML
     private TextField empID;
     private Label time;
+    
+    @FXML
+    private TextField projID;
 
     @FXML
     public void initialize() {
     	DateFormat format = new SimpleDateFormat( "HH:mm:ss" );
-        final Timeline timeline = new Timeline(
-            new KeyFrame(
-            		Duration.millis(1000),
-            		event -> {
-            			Calendar cal = Calendar.getInstance();
-            			time.setText(format.format(cal.getTime()));
-            		}
-            		)
-    );
-        timeline.setCycleCount( Animation.INDEFINITE );
-        timeline.play();
+    //     final Timeline timeline = new Timeline(
+    //         new KeyFrame(
+    //         		Duration.millis(1000),
+    //         		event -> {
+    //         			Calendar cal = Calendar.getInstance();
+    //         			time.setText(format.format(cal.getTime()));
+    //         		}
+    //         		)
+    // );
+    //     timeline.setCycleCount( Animation.INDEFINITE );
+    //     timeline.play();
+
+
     	System.out.println("In initialize");
     	String first=null,last = null;
-    	ID = Integer.parseInt(empID.getText());
     	
+
     	Connection conn = null;
  	   Statement stmt = null;
  	   try{
@@ -80,7 +88,7 @@ public class AdminController{
  	      Class.forName("com.mysql.jdbc.Driver");
 
  	      //STEP 3: Open a connection
- 	      System.out.println("Connecting to database for emp...");
+ 	      System.out.println("Connecting to database for Admin...");
  	      conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
  	      //STEP 4: Execute a query
@@ -89,15 +97,15 @@ public class AdminController{
  	      String sql;
  	      sql = "select f_name,l_name from emp where uid=" + LoginController.ID;
  	      ResultSet rs = stmt.executeQuery(sql);
- 	      
- 	      
+
+
  	      //STEP 5: Extract data from result set
  	      while(rs.next()){
  	         //Retrieve by column name
  	         first = rs.getString("f_name");
  	         last = rs.getString("l_name");
  	      }
- 	      
+
  	      //STEP 6: Clean-up environment
  	      rs.close();
  	      stmt.close();
@@ -121,12 +129,12 @@ public class AdminController{
  	      }catch(SQLException se){
  	         se.printStackTrace();
  	      }//end finally try
- 	   }//end try 
- 	   
+ 	   }//end try
+
  	   String names = first + " " + last;
  	   Namex.setText(names);
  	   idx.setText(Integer.toString(LoginController.ID));
- 	   
+
     }
     public void logout(ActionEvent event) throws IOException
     {
@@ -145,7 +153,10 @@ public class AdminController{
     	window.show();
     }
     public void empstatus(ActionEvent event) throws IOException
-    {
+    {	
+    	admincheck=1;
+    	EID = Integer.parseInt(empID.getText());
+    	System.out.println(empID.getText());
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("EmpStatus.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -155,6 +166,7 @@ public class AdminController{
     }
     public void report(ActionEvent event) throws IOException
     {
+    	PRID = Integer.parseInt(projID.getText());
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("ProjectReport.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -178,4 +190,3 @@ public class AdminController{
     	window.show();
     }
 }
-
