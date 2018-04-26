@@ -138,8 +138,7 @@ public class AdminController{
     }
     public void logout(ActionEvent event) throws IOException
     {	
-    	admincheck=1;
-    	EID = Integer.parseInt(empID.getText());
+    	
     	Parent tableView = FXMLLoader.load(getClass().getClassLoader().getResource("Login.fxml"));
     	Scene tableViewscene = new Scene(tableView);
     	Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

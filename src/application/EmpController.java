@@ -164,7 +164,7 @@ public class EmpController {
   	      System.out.println("Creating statement for name...");
   	      stmt = conn.createStatement();
   	      String sql;
-  	      sql = "insert into works values ("+LoginController.ID+",(select w.pno from works w where eid="+LoginController.ID+"and ),'"+date+"','"+time+"',null)";
+  	      sql = "insert into works values("+LoginController.ID+",(select pno from emp where uid="+LoginController.ID+"),'"+date+"','"+time+"',null);";
   	      stmt.executeUpdate(sql);
 
   	      //STEP 6: Clean-up environment
@@ -217,7 +217,7 @@ public class EmpController {
    	      System.out.println("Creating statement for name...");
    	      stmt = conn.createStatement();
    	      String sql;
-   	      sql = "update works set checkout="+date+"where eid="+ID;
+   	      sql = "update works set checkout='"+time+"' where eid="+ID+" and w_date='"+date+"';";
    	      stmt.executeUpdate(sql);
 
 

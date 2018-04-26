@@ -141,6 +141,7 @@ public class CreateEditEmpController { //CONFIG REQD : Add dept??
 	    		  
 	    	  }
 	      }
+	      
  	      if(checker == true ) {
  	    	  System.out.println("ID Exists");
  	 	      stmt1 = conn.createStatement();
@@ -154,8 +155,9 @@ public class CreateEditEmpController { //CONFIG REQD : Add dept??
  	 	    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
  	 	      String doj = df.format(java.time.LocalDate.now());
  	 	      int dno = 10;
+ 	 	      int pidx =102;
  	 	      String sanswer = "pet";
- 	 	      sql1 = "insert into emp values("+id+",'"+first+"','"+last+"','"+s+"','"+pass+"','"+sanswer+"','"+doj+"',"+dno;
+ 	 	      sql1 = "insert into emp values("+id+",'"+first+"','"+last+"','"+s+"','"+pass+"','"+sanswer+"','"+doj+"',"+dno+","+pidx+");";       
  	 	      stmt1.executeUpdate(sql1);
  	      }
 
