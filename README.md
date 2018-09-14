@@ -12,14 +12,12 @@ Built using JavaFX along with JDBC which connects to a MySQL database.
 
 Java 1.8 JDK along with libraries of JavaFX must be installed. MySQL Server is required to run the program.
 
-## Deployment
+### Installing
 
-Now to run the program:
-
+Run this in your project folder.
 ```
 $ javac GUI.java
 ```
-
 
 ## Built With
 
